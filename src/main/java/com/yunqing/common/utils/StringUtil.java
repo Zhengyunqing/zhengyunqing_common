@@ -1,7 +1,11 @@
 package com.yunqing.common.utils;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.net.URL;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 
@@ -63,5 +67,66 @@ public class StringUtil {
 		String name2 = randomChineseString(RandomUtil.random(1, 2));
 		return name1+name2;
 
+	}
+	
+	/**
+	 * 
+	 * @Title: isEmail 
+	 * @Description: 是否为邮箱
+	 * @param src
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isEmail(String src) {
+		
+		String reg="\\w+\\@\\w+\\.\\w+";
+		return src.matches(reg);
+	}
+	
+	/**
+	 * 
+	 * @Title: isPhoneNumber 
+	 * @Description: 是否为手机号
+	 * @param src
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isPhoneNumber(String src) {
+		
+	        String reg="^1[3|4|5|7|8]\\d{9}$";
+	        return src.matches(reg);
+	        		
+	}
+	/**
+	 * 
+	 * @Title: isNumber 
+	 * @Description: 是否是数字类型包含正负数 小数
+	 * @param src
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isNumber(String src) {
+		String reg="^(-)?[0-9]+(\\.[0-9]+)?$";
+		return src.matches(reg);
+		
+	}
+	/**
+	 * 
+	 * @Title: isHttpUrl 
+	 * @Description: 判断是否为合法的地址
+	 * @param src
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isHttpUrl(String src) {
+		try {
+			URL url = new URL(src);
+			url.openStream();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("不是合法url");
+		return false;
 	}
 }

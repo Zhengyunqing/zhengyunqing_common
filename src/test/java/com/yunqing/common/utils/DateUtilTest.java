@@ -21,5 +21,31 @@ public class DateUtilTest {
 		}
 	
 	}
-
+	//月初
+	@Test
+	public void testMonth() {
+		Date date = DateUtil.getInitMonth(new Date(30000000000000l));
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(sd.format(date));
+	}
+	
+	//月末
+		@Test
+		public void testEndMonth() {
+//			Calendar c = Calendar.getInstance();
+//			c.set(2020,1,20);
+			Date date = DateUtil.getEndMonth(new Date(10000000000000l));
+			SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			System.out.println(sd.format(date));
+		}
+	
+		@Test
+		public void testGetAge() {
+			Calendar c = Calendar.getInstance();
+			c.set(2011, 2,28);
+			int i = DateUtil.getAgeByBirthday(c.getTime());
+			System.out.println(i);
+		}
+	
+	
 }

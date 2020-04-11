@@ -15,7 +15,6 @@ public class RandomUtil {
 	public static int random(int min, int max){
 		Random random = new Random();
 		int i = random.nextInt(max - min +1)+min;//大于等于0小于1max
-		System.out.println(i);
 		return i;
 	}
 	//方法2：在最小值min与最大值max之间截取subs个不重复的随机数。例如在1-10之间取3个不重复的随机数，那么[2,6,9]是对的，[3,5,5]则不对，因为5重复了。应用场景：在100篇文章中随机取10篇文章，月考可能会使用到。 (8分)
@@ -42,6 +41,15 @@ public class RandomUtil {
 	public static char randomCharacter (){
 		String str="1234567890abcdefghijklmnopqrstuvwxyz";
 		return str.charAt(random(0,str.length()-1));
+	}
+	//返回0-9
+	public static String randomNumber (int length){
+		String str="1234567890";
+		String result="";
+		for(int i=0;i<length;i++) {
+			result+=str.charAt(random(0,str.length()-1));
+		}
+		return result;
 	}
 	//方法4：返回参数length个字符串(5分)，方法内部要调用randomCharacter()方法 (4分)
 	public static String randomString(int length){
