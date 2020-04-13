@@ -92,5 +92,19 @@ public class DateUtil {
 		
 		return age;
 	}
+	/**
+	 * 
+	 * @Title: getDateByBefore 
+	 * @Description: 返回昨天的时间
+	 * @return
+	 * @return: Date
+	 */
+	public static Date getDateByBefore() {
+		//用系统时间初始化 Calender
+		Calendar c=Calendar.getInstance();
+		//让系统时间减去1天
+		c.add(Calendar.DAY_OF_MONTH, -1);
+		return c.getTime();
+	}
 	
 }
